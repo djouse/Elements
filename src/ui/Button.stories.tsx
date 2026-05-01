@@ -1,6 +1,4 @@
-import React from 'react';
-import type { Meta } from '@ladle/react';
-
+import type { Story, Meta } from '@ladle/react';
 import { Button } from './button';
 
 const meta: Meta = {
