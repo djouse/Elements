@@ -33,6 +33,7 @@
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
+  --color-muted-neutral: var(--muted-neutral);
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
@@ -86,6 +87,7 @@
     --secondary: #F5F5F5;
     --secondary-foreground: #0A0A0A;
     --muted: #F5F5F5;
+    --muted-neutral: #e7e7e7; 
     --muted-foreground: #737373;
     --accent: #F5F5F5;
     --accent-foreground: #171717;
@@ -124,6 +126,33 @@
     --border-width: 1px;
   }
 
+/* ── Default button SVG border animation ──────────────────────────────── */
+
+.btn-border-rect {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-dasharray: 1, 0;
+  stroke-dashoffset: 0;
+  transition:
+    stroke-dasharray 0.35s linear,
+    stroke-dashoffset 0.35s linear,
+    stroke-width 0.15s linear;
+}
+
+[data-variant="default"]:hover .btn-border-rect {
+  stroke-width: 4;
+  stroke-dasharray: 0, 1;
+  stroke-dashoffset: var(--btn-dot-offset, 0.083);
+  transition:
+    stroke-dasharray 1.35s cubic-bezier(0.19, 1, 0.22, 1),
+    stroke-dashoffset 1.35s cubic-bezier(0.19, 1, 0.22, 1),
+    stroke-width 0.9s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* ────────────────────────────────────────────────────────────────────── */
+
   .dark {
     --background: #0A0A0A;
     --foreground: #FAFAFA;
@@ -136,6 +165,7 @@
     --secondary: #262626;
     --secondary-foreground: #FAFAFA;
     --muted: #262626;
+    --muted-neutral: #383838;
     --muted-foreground: #A3A3A3;
     --accent: #404040;
     --accent-foreground: #FAFAFA;

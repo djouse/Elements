@@ -1,73 +1,75 @@
-# React + TypeScript + Vite
+# elements
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A personal UI component library sandbox — a space for building, documenting, and iterating on reusable React components.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React 19** + **TypeScript**
+- **Tailwind CSS v4** — CSS-first config, no `tailwind.config.ts`
+- **shadcn/ui** + **Radix UI** — headless primitives and design tokens
+- **CVA** (class-variance-authority) — typed, multi-dimensional variant API
+- **Ladle** — component story browser for visual development
+- **Vite 8** — dev server and build
 
-## React Compiler
+## Getting started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+yarn install
+yarn ladle     # open the component story browser (recommended for component dev)
+yarn dev       # open the main Vite app
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Commands
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+| Command | Description |
+|---|---|
+| `yarn dev` | Start the Vite dev server |
+| `yarn ladle` | Start the Ladle story browser |
+| `yarn build` | Type-check and build for production |
+| `yarn lint` | Run ESLint |
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Project structure
+
 ```
+src/
+  ui/
+    buttons/
+      Button/
+        index.tsx            # Component
+        Button.stories.tsx   # Ladle story
+  global.css                 # Tailwind v4 theme + font definitions
+lib/
+  utils.ts                   # cn() utility (clsx + tailwind-merge)
+.ladle/
+  config.mjs                 # Ladle config
+  vite.ladle.config.ts       # Vite config for Ladle
+public/
+  fonts/                     # Self-hosted Host Grotesk variable font
+```
+
+## Component API conventions
+
+Components use **CVA** for a composable, type-safe variant system. Each component exposes independent dimensions — for example, the `Button`:
+
+```tsx
+<Button variant="outline" color="destructive" size="sm">
+  Delete
+</Button>
+```
+
+| Prop | Values | Default |
+|---|---|---|
+| `variant` | `default` \| `outline` \| `secondary` \| `destructive` \| `link` | `default` |
+| `color` | `primary` \| `secondary` \| `destructive` | `primary` |
+| `size` | `default` \| `xs` \| `sm` \| `lg` \| `icon` \| `icon-xs` \| `icon-sm` \| `icon-lg` | `default` |
+
+`variant` controls the visual shape; `color` controls the semantic color token — they compose via compound variants.
+
+## Design tokens
+
+Tokens are defined as CSS custom properties by shadcn/ui and mapped to Tailwind utilities in `src/global.css` via `@theme inline`. Key tokens: `--primary`, `--secondary`, `--destructive`, `--muted`, `--background`, `--foreground`, `--border`, `--ring`.
+
+## Fonts
+
+- **Inter** (variable) — loaded via `@fontsource-variable/inter`
+- **Host Grotesk** (variable) — self-hosted in `public/fonts/`
