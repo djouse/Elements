@@ -27,8 +27,8 @@ export const Cards: Story = () => (
         <p>Here is some content inside the card. It can be text, images, or any other elements.</p>
       </CardContent>
       <CardFooter>
-        <Button variant="simplified">Action 1</Button>
-        <Button variant="simplified" className="ml-4">
+        <Button variant="outline">Action 1</Button>
+        <Button variant="outline" className="ml-4">
           Action 2
         </Button>
       </CardFooter>
