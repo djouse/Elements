@@ -85,6 +85,12 @@ export const Welcome: Story = () => (
             description="Full UI sections — hero, navbar, and sidebar — assembled from atoms and molecules."
             tag="3 components"
           />
+          <NavCard
+            href="?story=g-assets--favicon"
+            label="Assets"
+            description="Favicon, icon sprite, and Host Grotesk font files. Click any asset to copy its reference."
+            tag="3 stories"
+          />
         </div>
       </div>
 

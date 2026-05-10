@@ -68,7 +68,7 @@ export const Simple: Story = () => (
 
 export const WithBackground: Story = () => (
   <div className="relative overflow-hidden rounded-xl bg-muted">
-    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
+    <div className="pointer-events-none absolute inset-0 bg-radial-[ellipse_at_top] from-primary/5 to-transparent" />
     <Hero className="relative min-h-0 py-28">
       <HeroBadge>Open source</HeroBadge>
       <HeroTitle className="text-4xl sm:text-5xl lg:text-6xl">
