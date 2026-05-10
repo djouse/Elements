@@ -1,9 +1,9 @@
 import {Card, CardHeader, CardTitle, CardContent, CardDescription , CardFooter} from '.';
-import { Button } from '../buttons/Button';
+import { Button } from '../Buttons/Button';
 import type { Story, Meta } from '@ladle/react';
 
 const meta: Meta = {
-  title: 'Atoms/Cards/Card',
+  title: 'D Atoms/C Card',
   parameters: {
     docs: {
       description: {

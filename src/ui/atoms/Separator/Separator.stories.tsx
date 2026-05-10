@@ -2,7 +2,7 @@ import type { Story, Meta } from '@ladle/react';
 import { Separator } from '.';
 
 const meta: Meta = {
-  title: 'Atoms/Separator',
+  title: 'D Atoms/F Separator',
   parameters: {
     docs: {
       description: {

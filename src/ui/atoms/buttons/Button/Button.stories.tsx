@@ -3,7 +3,7 @@ import type { Story, Meta } from '@ladle/react';
 import { Button } from '.';
 
 const meta: Meta = {
-  title: 'Atoms/Buttons/Button',
+  title: 'D Atoms/B Buttons/Button',
   parameters: {
     docs: {
       description: {

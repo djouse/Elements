@@ -1,9 +1,8 @@
-import React from 'react';
 import type { Story, Meta } from '@ladle/react';
 import { ScrollArea, ScrollBar } from '.';
 
 const meta: Meta = {
-  title: 'Atoms/Scroll',
+  title: 'D Atoms/E Scroll',
   parameters: {
     docs: {
       description: {

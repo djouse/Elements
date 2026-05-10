@@ -1,9 +1,8 @@
-import React from 'react';
 import type { Story, Meta } from '@ladle/react';
 import { AnimatedButton } from '.';
 
 const meta: Meta = {
-  title: 'Atoms/Buttons/Animated Button',
+  title: 'D Atoms/B Buttons/Animated Button',
   parameters: {
     docs: {
       description: {

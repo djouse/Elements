@@ -11,10 +11,10 @@ import {
   ItemHeader,
   ItemFooter,
 } from '.';
-import { Button } from '../buttons/Button';
+import { Button } from '../Buttons/Button';
 
 const meta: Meta = {
-  title: 'Atoms/Items',
+  title: 'D Atoms/D Items',
   parameters: {
     docs: {
       description: {
