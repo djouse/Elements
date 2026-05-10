@@ -79,6 +79,12 @@ export const Welcome: Story = () => (
             description="Composed patterns built from atoms — overlays, panels, and multi-part interactive components."
             tag="1 component"
           />
+          <NavCard
+            href="?story=f-organisms--a-overview--overview"
+            label="Organisms"
+            description="Full UI sections — hero, navbar, and sidebar — assembled from atoms and molecules."
+            tag="3 components"
+          />
         </div>
       </div>
 

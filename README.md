@@ -1,6 +1,6 @@
 # elements
 
-A personal UI component library sandbox — a space for building, documenting, and iterating on reusable React components.
+UI component library sandbox — a space for building, documenting, and iterating on reusable React components.
 
 ## Stack
 
