@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import type { Story, Meta } from '@ladle/react';
 import {
   AppSidebar,
@@ -9,11 +9,11 @@ import {
   SidebarItem,
   SidebarFooter,
 } from '.';
-import { ScrollArea } from '@/src/ui/atoms/Scroll';
-import { Separator } from '@/src/ui/atoms/Separator';
-import { Switch } from '@/src/ui/atoms/Switch';
-import { Progress } from '@/src/ui/atoms/Progress';
-import { Skeleton } from '@/src/ui/atoms/Skeleton';
+import { ScrollArea } from '@/ui/atoms/Scroll';
+import { Separator } from '@/ui/atoms/Separator';
+import { Switch } from '@/ui/atoms/Switch';
+import { Progress } from '@/ui/atoms/Progress';
+import { Skeleton } from '@/ui/atoms/Skeleton';
 import {
   LayoutDashboardIcon,
   FolderIcon,
@@ -22,8 +22,6 @@ import {
   InboxIcon,
   SettingsIcon,
   ZapIcon,
-  SunIcon,
-  MoonIcon,
   BellIcon,
   CreditCardIcon,
 } from 'lucide-react';

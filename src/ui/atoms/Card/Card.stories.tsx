@@ -1,5 +1,5 @@
 import {Card, CardHeader, CardTitle, CardContent, CardDescription , CardFooter} from '.';
-import { Button } from '../Buttons/Button';
+import { Button } from '@/ui/atoms/buttons/Button';
 import type { Story, Meta } from '@ladle/react';
 
 const meta: Meta = {

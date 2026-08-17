@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Story, Meta } from '@ladle/react';
 import {
   Drawer,
@@ -10,7 +9,7 @@ import {
   DrawerDescription,
   DrawerClose,
 } from '.';
-import { Button } from '@/src/ui/atoms/Buttons/Button';
+import { Button } from '@/ui/atoms/buttons/Button';
 
 const meta: Meta = {
   title: 'D Atoms/K Drawer',

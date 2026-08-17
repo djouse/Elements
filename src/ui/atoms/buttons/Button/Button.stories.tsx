@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Story, Meta } from '@ladle/react';
-import { Button } from '.';
+import { Button } from '@/ui/atoms/buttons/Button';
 
 const meta: Meta = {
   title: 'D Atoms/B Buttons/Button',

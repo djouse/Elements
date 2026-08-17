@@ -11,7 +11,7 @@ import {
   ItemHeader,
   ItemFooter,
 } from '.';
-import { Button } from '../Buttons/Button';
+import { Button } from '@/ui/atoms/buttons/Button';
 
 const meta: Meta = {
   title: 'D Atoms/D Items',

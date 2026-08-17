@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Story, Meta } from '@ladle/react';
 import {
   Sheet,
@@ -10,8 +9,8 @@ import {
   SheetDescription,
   SheetClose,
 } from '.';
-import { Button } from '@/src/ui/atoms/Buttons/Button';
-import { Switch } from '@/src/ui/atoms/Switch';
+import { Button } from '@/ui/atoms/buttons/Button';
+import { Switch } from '@/ui/atoms/Switch';
 
 const meta: Meta = {
   title: 'E Molecules/A Sheet',

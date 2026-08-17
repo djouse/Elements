@@ -3,24 +3,39 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "devEngines": {
+    "packageManager": {
+      "name": "yarn",
+      "version": "1.22.22"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    },
+    "./global.css": "./src/global.css",
+    "./fonts/*": "./public/fonts/*"
+  },
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
+    "dev": "tsc -p tsconfig.build.json --watch & tsc-alias -p tsconfig.build.json --watch",
+    "build": "tsc -p tsconfig.build.json && tsc-alias -p tsconfig.build.json",
     "ladle": "ladle dev",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.2.8",
-    "@ladle/react": "^5.1.1",
-    "@tailwindcss/vite": "^4.2.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^1.12.0",
     "next-themes": "^0.4.6",
     "radix-ui": "^1.4.3",
-    "react": "^19.2.5",
-    "react-dom": "^19.2.5",
+    "react-is": "^19.2.5",
     "recharts": "3.8.0",
     "shadcn": "^4.6.0",
     "sonner": "^2.0.7",
@@ -29,19 +44,27 @@
     "tw-animate-css": "^1.4.0",
     "vaul": "^1.1.2"
   },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@ladle/react": "^5.1.1",
+    "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^25.6.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^6.0.1",
-    "@vitejs/plugin-react-swc": "^4.3.0",
+    "@vitejs/plugin-react-swc": "^3.11.0",
     "eslint": "^10.2.1",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.5.0",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "tsc-alias": "^1.9.2",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.58.2",
-    "vite": "^8.0.10"
+    "vite": "^6.4.3"
   }
 }

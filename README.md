@@ -9,42 +9,71 @@ UI component library sandbox — a space for building, documenting, and iteratin
 - **shadcn/ui** + **Radix UI** — headless primitives and design tokens
 - **CVA** (class-variance-authority) — typed, multi-dimensional variant API
 - **Ladle** — component story browser for visual development
-- **Vite 8** — dev server and build
+- **tsc** + **tsc-alias** — the entire build; no bundler
+
+There is no application shell and no bundler in the build path. The package compiles
+straight to ESM with `tsc`, and `tsc-alias` rewrites the `@/*` path aliases to relative
+specifiers with explicit `.js` extensions so the output is valid Node ESM.
+
+Vite is still present, but only as an implementation detail of Ladle — it powers the story
+browser's dev server via [`.ladle/vite.ladle.config.ts`](.ladle/vite.ladle.config.ts) and is
+not involved in `yarn build`.
 
 ## Getting started
 
 ```bash
 yarn install
 yarn ladle     # open the component story browser (recommended for component dev)
-yarn dev       # open the main Vite app
+yarn build     # compile the library to dist/
 ```
 
 ## Commands
 
 | Command | Description |
 |---|---|
-| `yarn dev` | Start the Vite dev server |
 | `yarn ladle` | Start the Ladle story browser |
-| `yarn build` | Type-check and build for production |
+| `yarn build` | Compile `src/` to `dist/` via `tsc` + `tsc-alias` |
+| `yarn dev` | Same as `build`, in watch mode |
 | `yarn lint` | Run ESLint |
+| `yarn lint:fix` | Run ESLint with `--fix` |
+
+## Build output
+
+`yarn build` uses [`tsconfig.build.json`](tsconfig.build.json), which extends the base config
+and excludes `src/stories/` and every `*.stories.tsx` — stories are Ladle-only and never ship.
+The base [`tsconfig.json`](tsconfig.json) still covers all of `src/`, so stories keep their
+type-checking and alias resolution in the editor.
+
+The package entry is [`src/index.ts`](src/index.ts), a barrel re-exporting every component and
+the `cn` utility. `react` and `react-dom` are peer dependencies, so consumers supply their own
+copy rather than getting a duplicate React.
 
 ## Project structure
 
+Components are organised by atomic design level, each in its own folder with its story
+alongside it.
+
 ```
 src/
+  index.ts                     # Package entry — barrel of every export
   ui/
-    buttons/
-      Button/
-        index.tsx            # Component
-        Button.stories.tsx   # Ladle story
-  global.css                 # Tailwind v4 theme + font definitions
-lib/
-  utils.ts                   # cn() utility (clsx + tailwind-merge)
+    atoms/
+      buttons/
+        Button/
+          index.tsx            # Component
+          Button.stories.tsx   # Ladle story
+    molecules/
+    organisms/
+  stories/                     # Docs-only stories (introduction, colors, typography, assets)
+  lib/
+    utils.ts                   # cn() utility (clsx + tailwind-merge)
+  global.css                   # Tailwind v4 theme + font definitions
 .ladle/
-  config.mjs                 # Ladle config
-  vite.ladle.config.ts       # Vite config for Ladle
+  config.mjs                   # Ladle config — story globs, addons
+  vite.ladle.config.ts         # Vite config, used only by Ladle
+  components.tsx               # Global provider (theme + Toaster)
 public/
-  fonts/                     # Self-hosted Host Grotesk variable font
+  fonts/                       # Self-hosted Host Grotesk variable font
 ```
 
 ## Component API conventions

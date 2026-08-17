@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import type { Story, Meta } from '@ladle/react';
 import { Navbar, NavbarInner, NavbarBrand, NavbarLinks, NavbarLink, NavbarActions } from '.';
-import { Button } from '@/src/ui/atoms/Buttons/Button';
-import { Switch } from '@/src/ui/atoms/Switch';
-import { Separator } from '@/src/ui/atoms/Separator';
+import { Button } from '@/ui/atoms/buttons/Button';
+import { Switch } from '@/ui/atoms/Switch';
+import { Separator } from '@/ui/atoms/Separator';
 import {
   Sheet,
   SheetTrigger,
@@ -11,7 +11,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetClose,
-} from '@/src/ui/molecules/Sheets';
+} from '@/ui/molecules/Sheets';
 import { MenuIcon, ZapIcon, XIcon } from 'lucide-react';
 
 const meta: Meta = {

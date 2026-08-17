@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Story, Meta } from '@ladle/react';
 import {
   AlertDialog,
@@ -12,7 +11,7 @@ import {
   AlertDialogCancel,
   AlertDialogMedia,
 } from '.';
-import { Button } from '@/src/ui/atoms/Buttons/Button';
+import { Button } from '@/ui/atoms/buttons/Button';
 import { TrashIcon, TriangleAlertIcon, LogOutIcon } from 'lucide-react';
 
 const meta: Meta = {

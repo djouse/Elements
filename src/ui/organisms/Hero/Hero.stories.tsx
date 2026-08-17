@@ -1,8 +1,8 @@
 import type { Story, Meta } from '@ladle/react';
 import { Hero, HeroBadge, HeroTitle, HeroDescription, HeroActions, HeroMetrics, HeroMetric } from '.';
-import { Button } from '@/src/ui/atoms/Buttons/Button';
-import { AnimatedButton } from '@/src/ui/atoms/Buttons/AnimatedButtons';
-import { Separator } from '@/src/ui/atoms/Separator';
+import { Button } from '@/ui/atoms/buttons/Button';
+import { AnimatedButton } from '@/ui/atoms/buttons/AnimatedButtons';
+import { Separator } from '@/ui/atoms/Separator';
 import { ArrowRightIcon, SparklesIcon } from 'lucide-react';
 
 const meta: Meta = {

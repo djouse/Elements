@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Story, Meta } from '@ladle/react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '.';
 
